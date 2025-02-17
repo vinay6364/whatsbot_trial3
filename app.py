@@ -1,15 +1,8 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
 
 # Initialize the Flask app
 app = Flask(__name__)
-
-# Initialize the chatbot
-chatbot = ChatBot('WhatsAppBot')
-trainer = ChatterBotCorpusTrainer(chatbot)
-trainer.train("chatterbot.corpus.english")  # Train on English corpus
 
 # Track user sessions and data
 user_sessions = {}
@@ -90,9 +83,8 @@ def webhook():
                 twilio_response.message("Thank you for choosing Areka Karmik Private Limited!")
                 twilio_response.message().media(HONEY_BEE_IMAGE_URL)
             else:
-                # Default chatbot response
-                response = chatbot.get_response(incoming_message)
-                twilio_response.message(str(response))
+                # Default response for unrecognized messages
+                twilio_response.message("I'm sorry, I didn't understand that. Please choose an option from the menu.")
     else:
         # If the user hasn't started the conversation, prompt them to type 'start'
         twilio_response.message("Please type 'start' to begin the conversation.")
