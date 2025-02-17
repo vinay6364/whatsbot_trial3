@@ -1,7 +1,7 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-from chatterbot2 import ChatBot
-from chatterbot2.trainers import ChatterBotCorpusTrainer
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 # Initialize the Flask app
 app = Flask(__name__)
