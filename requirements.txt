@@ -1,0 +1,7 @@
+Flask==2.3.2
+twilio==8.3.0
+chatterbot2==2.0.0
+chatterbot-corpus==1.2.0
+PyYAML==6.0.1
+spacy==3.5.3
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0.tar.gz
